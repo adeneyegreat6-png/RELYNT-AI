@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Relynt brand: midnight black, electric blue, neon purple, cyan. */
+@theme inline {
+  --color-ink: #070a12;
+  --color-panel: #0d1220;
+  --color-panel-2: #131a2c;
+  --color-line: #222b42;
+  --color-muted: #8b95ad;
+  --color-text: #e8ecf5;
+  --color-blue: #2f6bff;
+  --color-purple: #a855f7;
+  --color-cyan: #22d3ee;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+  --color-bad: #f87171;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.brand-gradient {
+  background-image: linear-gradient(110deg, var(--color-blue), var(--color-purple) 55%, var(--color-cyan));
+}
+
+.brand-text {
+  background-image: linear-gradient(110deg, #6f9bff, var(--color-purple) 50%, var(--color-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-ink);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+.field:focus {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 1px;
+}
