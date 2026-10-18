@@ -13,15 +13,16 @@ export default function LoginPage() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setState("sending");
-    const { error } = await createClient().auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
-    });
-    if (error) {
-      setState("error");
-      setMessage(error.message);
-    } else {
+    try {
+      const { error } = await createClient().auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      });
+      if (error) throw error;
       setState("sent");
+    } catch (err) {
+      setState("error");
+      setMessage(err instanceof Error ? err.message : "Sign-in is unavailable right now.");
     }
   }
 
